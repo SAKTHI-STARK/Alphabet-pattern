@@ -1,13 +1,19 @@
-#getting rows and columns from the user
-n=int(input("Enter number of rows & columns:"))
+#getting input for no.of rows and columns from the user
+n = int(input("Enter an odd number (>=5) for rows & columns: "))
 
-#initialize for loop to print albhabet G
-for i in range(0,n):
-    print("")
-    for j in range(0,n):
-        if (i==2 and j==1) or (i==3 and j==1) or (i==3 and j==3) or (i==4 and j==3) or (i==1 and j!=0):
-            print(" ",end=" ")
-        elif(i==0 or j==0 or i==4 or j==2 or i==2 or j==4):
-            print("*",end=" ")
-        else:
-            print("*",end=" ")
+if n < 5 or n % 2 == 0:
+    print("Please enter an odd number >= 5.")
+else:
+    for i in range(n):
+        for j in range(n):
+            if (
+                i == 0 or                        # Top bar
+                i == n-1 or                      # Bottom bar
+                j == 0 or                        # Left bar
+                (i >= n//2 and j == n-1) or      # Lower-right vertical
+                (i == n//2 and j >= n//2)        # Middle bar to right
+            ):
+                print("*", end=" ")
+            else:
+                print(" ", end=" ")
+        print()

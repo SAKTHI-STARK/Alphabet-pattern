@@ -7,7 +7,7 @@ n=int(input("enter no.of rows & columns:"))
 for i in range(0,n):
     print("")
     for j in range(0,n):
-        if(i==0 or j==0 or i==n//2 or i==n-1):
+        if((j==0 or j==n//2)):
             print("*",end=" ")
         else:
             print(" ",end=" ")
